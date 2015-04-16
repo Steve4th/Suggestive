@@ -5,7 +5,7 @@ using System.Web.Mvc;
 
 namespace SuggestiveWeb.Controllers
 {
-    [Authorize]
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         public ActionResult Index()
