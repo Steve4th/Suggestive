@@ -31,6 +31,7 @@ namespace SuggestiveWeb
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                  "~/Content/bootstrap.css",
+                 "~/Content/bootswatch.css",
                  "~/Content/Site.css"));
         }
     }
