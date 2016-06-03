@@ -14,6 +14,6 @@ I have decided upon the following technology choices to build this application w
  - Host in Azure Cloud
  - AngularJs v2 to build the client-side experience, written using TypeScript
  - Bootstrap CSS framework, modified using SASS
- - ASP.NET 5 to power the Server-Side
+ - ASP.NET Core to power the Server-Side
  - Targeting the .NET Core framework 
 
