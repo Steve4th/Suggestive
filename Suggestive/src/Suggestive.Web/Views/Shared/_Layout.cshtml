@@ -32,6 +32,7 @@
                     <ul class="nav navbar-nav">
                         <li><a asp-controller="Home" asp-action="Index">Home</a></li>
                         <li><a asp-controller="Home" asp-action="About">About</a></li>
+                        <li><a asp-controller="Home" asp-action="Help">API</a></li>
                         <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
                     </ul>
                     @await Html.PartialAsync("_LoginPartial")
@@ -42,7 +43,7 @@
             @RenderBody()
             <hr />
             <footer>
-                <p>&copy; 2015 - Suggestive.Web</p>
+                <p>&copy; @System.DateTime.Now.Year - Suggestive.Web</p>
             </footer>
         </div>
 
