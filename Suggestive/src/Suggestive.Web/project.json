@@ -41,7 +41,7 @@
       "version": "1.0.0-preview1-final",
       "type": "build"
     },
-    "Microsoft.AspNet.Identity": "3.0.0-rc1-final"
+    "Microsoft.AspNetCore.Identity": "1.0.0-rc2-final"
   },
 
   "tools": {
