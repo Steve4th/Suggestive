@@ -5,6 +5,7 @@ var gulp = require("gulp"),
     rimraf = require("rimraf"),
     concat = require("gulp-concat"),
     cssmin = require("gulp-cssmin"),
+    less = require("gulp-less"),
     uglify = require("gulp-uglify");
 
 var paths = {
@@ -23,7 +24,7 @@ gulp.task("clean:js", function (cb) {
 });
 
 gulp.task("clean:css", function (cb) {
-    rimraf(paths.concatCssDest, cb);
+    rimraf(paths.minCss, cb);
 });
 
 gulp.task("clean", ["clean:js", "clean:css"]);
@@ -36,10 +37,18 @@ gulp.task("min:js", function () {
 });
 
 gulp.task("min:css", function () {
-    return gulp.src([paths.css, "!" + paths.minCss])
+    return gulp.src('./Styles/*.less')
+        .pipe(less())
         .pipe(concat(paths.concatCssDest))
         .pipe(cssmin())
         .pipe(gulp.dest("."));
 });
 
-gulp.task("min", ["min:js", "min:css"]);
+gulp.task("bootswatch:css", function() {
+    return gulp.src('./Styles/bootswatch_superhero.css')
+        .pipe(concat(paths.webroot + "css/bootswatch.min.css"))
+        .pipe(cssmin())
+        .pipe(gulp.dest("."));
+});
+
+gulp.task("min", ["min:js", "min:css", "bootswatch:css"]);
