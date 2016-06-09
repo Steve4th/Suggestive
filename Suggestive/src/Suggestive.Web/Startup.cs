@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using Suggestive.Web.Models;
 using Suggestive.Web.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace Suggestive.Web
 {
@@ -41,7 +42,7 @@ namespace Suggestive.Web
         {
             // Add framework services.
             services.AddDbContext<ApplicationDbContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                        options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -73,7 +74,7 @@ namespace Suggestive.Web
 
             app.UseStaticFiles();
 
-            //app.UseIdentity();
+            app.UseIdentity();
 
             // To configure external authentication please see http://go.microsoft.com/fwlink/?LinkID=532715
 
