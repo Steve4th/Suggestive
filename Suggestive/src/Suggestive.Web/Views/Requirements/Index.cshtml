@@ -1,0 +1,76 @@
+﻿@using Microsoft.EntityFrameworkCore.Metadata.Internal
+@using Suggestive.Web.Models.Requirements
+@using Suggestive.Web.ViewModels.Requirements
+@model TicketStatusViewModel
+
+@{
+    ViewData["Title"] = "Suggestive Requirements";
+}
+<h2>@ViewData["Title"]</h2>
+<h4>This page shows the current progress of implementing the Suggestive requirements.</h4>
+
+<div class="row">
+    <div class="col-lg-4">
+        <div class="panel panel-info">
+            <div class="panel-heading">@TicketStatus.ToDo</div>
+            <div class="panel-body">
+                    @foreach (var ticket in Model.ToDoTickets)
+                    {
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">
+
+                                <h4 class="list-group-item-heading">
+                                    <span class="glyphicon glyphicon-apple"></span>
+                                    @ticket.Summary
+                                </h4>
+                                <p class="list-group-item-text">@ticket.Description ...</p>
+                            </a>
+                        </div>
+                    }
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">@TicketStatus.InProgress</div>
+            <div class="panel-body">
+                    @foreach (var ticket in Model.InProgressTickets)
+                    {
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">
+
+                                <h4 class="list-group-item-heading">
+                                    <span class="glyphicon glyphicon-apple"></span>
+                                    @ticket.Summary
+                                </h4>
+                                <p class="list-group-item-text">@ticket.Description ...</p>
+                            </a>
+                        </div>
+                    }
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        
+        <div class="panel panel-success">
+            <div class="panel-heading">@TicketStatus.Complete</div>
+            <div class="panel-body">
+                @foreach (var ticket in Model.CompletedTickets)
+                {
+                    <div class="list-group">
+                        <a href="#" class="list-group-item">
+
+                            <h4 class="list-group-item-heading">
+                                <span class="glyphicon glyphicon-apple"></span>
+                                @ticket.Summary
+                            </h4>
+                            <p class="list-group-item-text">@ticket.Description ...</p>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
