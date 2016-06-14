@@ -20,7 +20,7 @@
                             <a href="#" class="list-group-item">
 
                                 <h4 class="list-group-item-heading">
-                                    <span class="glyphicon glyphicon-apple"></span>
+                                    <span class="glyphicon glyphicon-file"></span>
                                     @ticket.Summary
                                 </h4>
                                 <p class="list-group-item-text">@ticket.Description ...</p>
@@ -32,7 +32,7 @@
     </div>
     <div class="col-lg-4">
 
-        <div class="panel panel-primary">
+        <div class="panel panel-warning">
             <div class="panel-heading">@TicketStatus.InProgress</div>
             <div class="panel-body">
                     @foreach (var ticket in Model.InProgressTickets)
@@ -41,7 +41,7 @@
                             <a href="#" class="list-group-item">
 
                                 <h4 class="list-group-item-heading">
-                                    <span class="glyphicon glyphicon-apple"></span>
+                                    <span class="glyphicon glyphicon-file"></span>
                                     @ticket.Summary
                                 </h4>
                                 <p class="list-group-item-text">@ticket.Description ...</p>
@@ -62,7 +62,7 @@
                         <a href="#" class="list-group-item">
 
                             <h4 class="list-group-item-heading">
-                                <span class="glyphicon glyphicon-apple"></span>
+                                <span class="glyphicon glyphicon-file"></span>
                                 @ticket.Summary
                             </h4>
                             <p class="list-group-item-text">@ticket.Description ...</p>
