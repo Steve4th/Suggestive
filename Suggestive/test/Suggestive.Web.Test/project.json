@@ -1,4 +1,5 @@
 {
+  "title": "Suggestive Web Unit Tests",
   "version": "1.0.0-*",
   "testRunner": "xunit",
   "dependencies": {
