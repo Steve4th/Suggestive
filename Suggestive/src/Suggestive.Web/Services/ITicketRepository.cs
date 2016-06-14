@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Suggestive.Web.Models.Requirements;
 
 namespace Suggestive.Web.Services
 {
     public interface ITicketRepository
     {
-        IEnumerable<Ticket> GetAllTickets();
+        Task<IEnumerable<Ticket>> GetAllTicketsAsync();
     }
 }

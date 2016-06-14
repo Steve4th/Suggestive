@@ -18,9 +18,8 @@ namespace Suggestive.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            IEnumerable<Ticket> tickets = _ticketRepository.GetAllTickets();
+            IEnumerable<Ticket> tickets = await _ticketRepository.GetAllTicketsAsync();
 
-            await Task.Delay(500);
 
             var ticketStatusViewModel = new TicketStatusViewModel()
             {

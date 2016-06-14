@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Suggestive.Web.Models.Requirements;
 
 namespace Suggestive.Web.Services
 {
     public class TicketRepository: ITicketRepository
     {
-        public IEnumerable<Ticket> GetAllTickets()
+        private IEnumerable<Ticket> GetAllTickets()
         {
             return new List<Ticket>()
             {
@@ -16,6 +17,11 @@ namespace Suggestive.Web.Services
                 new Ticket() {Summary = "Requirement Four", Status = TicketStatus.Complete},
                 new Ticket() {Summary = "Requirement Five", Status = TicketStatus.Rejected}
             };
+        }
+
+        public Task<IEnumerable<Ticket>> GetAllTicketsAsync()
+        {
+            return Task.Run(() => this.GetAllTickets());
         }
     }
 }
