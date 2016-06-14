@@ -15,6 +15,9 @@ EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Suggestive.Web", "src\Suggestive.Web\Suggestive.Web.xproj", "{540BDDF6-8D29-466C-9D19-6BE7B0D5F883}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Suggestive.Web.Test", "test\Suggestive.Web.Test\Suggestive.Web.Test.xproj", "{5BA5B472-B5E0-43CA-AD02-9641367DC384}"
+	ProjectSection(ProjectDependencies) = postProject
+		{540BDDF6-8D29-466C-9D19-6BE7B0D5F883} = {540BDDF6-8D29-466C-9D19-6BE7B0D5F883}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{45C920FA-8B91-47EB-9894-C6A3C7913F4A}"
 EndProject
