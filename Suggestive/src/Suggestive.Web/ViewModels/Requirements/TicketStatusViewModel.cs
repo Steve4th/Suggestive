@@ -6,7 +6,7 @@ namespace Suggestive.Web.ViewModels.Requirements
 {
     public class TicketStatusViewModel
     {
-        public IList<Ticket> AllTickets { get; set; }
+        public IEnumerable<Ticket> AllTickets { get; set; }
 
         public IEnumerable<Ticket> ToDoTickets
         {
