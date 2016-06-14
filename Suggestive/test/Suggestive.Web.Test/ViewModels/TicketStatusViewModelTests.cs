@@ -4,7 +4,7 @@ using Suggestive.Web.Models.Requirements;
 using Suggestive.Web.ViewModels.Requirements;
 using Xunit;
 
-namespace suggestive.web.test
+namespace Suggestive.Web.Test.ViewModels
 {
     public class TicketStatusViewModelTests
     {
