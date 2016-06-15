@@ -5,7 +5,7 @@ using Suggestive.Web.Models.Requirements;
 
 namespace Suggestive.Web.Services
 {
-    public class TicketRepository: ITicketRepository
+    public class StubTicketRepository: ITicketRepository
     {
         private IEnumerable<Ticket> GetAllTickets()
         {
