@@ -1,0 +1,27 @@
+﻿[
+  {
+    "Status": 0,
+    "Summary": "A requirement",
+    "Description": null
+  },
+  {
+    "Status": 0,
+    "Summary": "Requirement Two",
+    "Description": null
+  },
+  {
+    "Status": 1,
+    "Summary": "Requirement Three",
+    "Description": null
+  },
+  {
+    "Status": 2,
+    "Summary": "Requirement Four",
+    "Description": null
+  },
+  {
+    "Status": 3,
+    "Summary": "Requirement Five",
+    "Description": "Five out of 3 isn't bad"
+  }
+]
