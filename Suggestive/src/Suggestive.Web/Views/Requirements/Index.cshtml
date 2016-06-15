@@ -12,7 +12,7 @@
 <div class="row">
     <div class="col-lg-4">
         <div class="panel panel-info">
-            <div class="panel-heading">@TicketStatus.ToDo</div>
+            <div class="panel-heading">@TicketStatus.ToDo.GetDisplayName()</div>
             <div class="panel-body">
                     @foreach (var ticket in Model.ToDoTickets)
                     {
@@ -33,7 +33,7 @@
     <div class="col-lg-4">
 
         <div class="panel panel-warning">
-            <div class="panel-heading">@TicketStatus.InProgress</div>
+            <div class="panel-heading">@TicketStatus.InProgress.GetDisplayName()</div>
             <div class="panel-body">
                     @foreach (var ticket in Model.InProgressTickets)
                     {
@@ -54,7 +54,7 @@
     <div class="col-lg-4">
         
         <div class="panel panel-success">
-            <div class="panel-heading">@TicketStatus.Complete</div>
+            <div class="panel-heading">@TicketStatus.Complete.GetDisplayName()</div>
             <div class="panel-body">
                 @foreach (var ticket in Model.CompletedTickets)
                 {
