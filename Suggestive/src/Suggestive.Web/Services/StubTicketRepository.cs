@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Suggestive.Web.Models.Requirements;
 
@@ -19,9 +18,9 @@ namespace Suggestive.Web.Services
             };
         }
 
-        public Task<IEnumerable<Ticket>> GetAllTicketsAsync()
+        public async Task<IEnumerable<Ticket>> GetAllTicketsAsync()
         {
-            return Task.Run(() => this.GetAllTickets());
+            return await Task.Run(() => this.GetAllTickets());
         }
     }
 }
