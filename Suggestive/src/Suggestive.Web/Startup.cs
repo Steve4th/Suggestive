@@ -50,6 +50,8 @@ namespace Suggestive.Web
 
             services.AddMvc();
 
+            services.AddSwaggerGen();
+
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
@@ -78,14 +80,15 @@ namespace Suggestive.Web
 
             app.UseIdentity();
 
-            // To configure external authentication please see http://go.microsoft.com/fwlink/?LinkID=532715
-
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            app.UseSwaggerGen();
+            app.UseSwaggerUi();
         }
     }
 }
