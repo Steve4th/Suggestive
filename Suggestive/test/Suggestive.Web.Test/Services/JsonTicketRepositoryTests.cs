@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Suggestive.Web.Services;
 using Xunit;
@@ -10,9 +11,15 @@ namespace Suggestive.Web.Test.Services
         [Fact]
         public async Task GetAllTickets_ReturnsTickets()
         {
-            ITicketRepository repo = new JsonTicketRepository();
+            ITicketRepository repo = new JsonTicketRepository("RequirementTickets.json");
             var tickets = await repo.GetAllTicketsAsync();
             Assert.True(tickets.Any(), "Expected 1 or more tickets returned");
+        }
+
+        [Fact]
+        public void Contructor_SupplyFileThatDoesNotExist_ExpectFileNotFoundException()
+        {
+            Assert.Throws<FileNotFoundException>(() => new JsonTicketRepository("AFileThatDoesNotExist.json"));
         }
     }
 }
