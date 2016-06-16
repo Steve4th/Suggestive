@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Suggestive.Web.Models.Requirements;
@@ -16,12 +17,18 @@ namespace Suggestive.Web.Api
             _ticketRepository = ticketRepository;
         }
 
+        [HttpGet]
+        public async Task<IEnumerable<Ticket>> Get()
+        {
+            return await _ticketRepository.GetAllTicketsAsync();
+        }
+
         [HttpGet("{id:int}")]
         public async Task<Ticket> Get(int id)
         {
             var tickets = await _ticketRepository.GetAllTicketsAsync();
 
-            return tickets.FirstOrDefault(t => t.Id == id);
+            return tickets.First(t => t.Id == id);
         }
     }
 }
