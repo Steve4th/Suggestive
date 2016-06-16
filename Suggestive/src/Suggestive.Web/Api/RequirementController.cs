@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Suggestive.Web.Models.Requirements;
 using Suggestive.Web.Services;
@@ -18,12 +19,9 @@ namespace Suggestive.Web.Api
         [HttpGet("{id:int}")]
         public async Task<Ticket> Get(int id)
         {
-            return new Ticket()
-            {
-                Description = "With this ticket you can access Wonka's chocolate factory",
-                Summary = $"Golden Ticket #{id}",
-                Status = TicketStatus.Complete
-            };
+            var tickets = await _ticketRepository.GetAllTicketsAsync();
+
+            return tickets.FirstOrDefault(t => t.Id == id);
         }
     }
 }
