@@ -53,7 +53,8 @@ namespace Suggestive.Web
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
-            services.AddSingleton<ITicketRepository, JsonTicketRepository>();
+            var ticketsJsonFilePath = "RequirementTickets.json";
+            services.AddSingleton<ITicketRepository>(new JsonTicketRepository(ticketsJsonFilePath));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

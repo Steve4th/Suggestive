@@ -1,26 +1,26 @@
 ﻿[
   {
-    "Status": 0,
+    "Status": "ToDo",
     "Summary": "A requirement",
     "Description": "I want it all....."
   },
   {
-    "Status": 0,
+    "Status": "ToDo",
     "Summary": "Requirement Two",
     "Description": "And I want it now"
   },
   {
-    "Status": 1,
+    "Status": "InProgress",
     "Summary": "Requirement Three",
     "Description": "3 little kittens"
   },
   {
-    "Status": 2,
+    "Status": "Rejected",
     "Summary": "Requirement Four",
     "Description": "Feel the fourth"
   },
   {
-    "Status": 3,
+    "Status": "Complete",
     "Summary": "Requirement Five",
     "Description": "Five out of 3 isn't bad"
   }
