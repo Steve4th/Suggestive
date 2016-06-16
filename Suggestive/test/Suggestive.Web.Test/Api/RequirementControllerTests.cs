@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using Suggestive.Web.Api;
 using Suggestive.Web.Services;
 using Xunit;
@@ -26,5 +27,15 @@ namespace Suggestive.Web.Test.Api
             var result = await apiController.Get(ticketId);
             Assert.Null(result);
         }
+
+        [Fact]
+        public async Task Get_RequestAllTickets_ExpectTicketsReturned()
+        {
+            var ticketRepository = new StubTicketRepository();
+            var apiController = new RequirementController(ticketRepository);
+            var result = await apiController.Get();
+            Assert.True(result.Any(),"Expected one or more tickets returned");
+        }
+
     }
-}
+    }
