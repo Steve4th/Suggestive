@@ -7,5 +7,7 @@ namespace Suggestive.Web.Services
     public interface ITicketRepository
     {
         Task<IEnumerable<Ticket>> GetAllTicketsAsync();
+
+        Task<Ticket> GetTicketAsync(int id);
     }
 }

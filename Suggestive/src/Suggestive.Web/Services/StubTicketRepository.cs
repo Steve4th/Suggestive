@@ -22,5 +22,10 @@ namespace Suggestive.Web.Services
         {
             return await Task.Run(() => this.GetAllTickets());
         }
+
+        public Task<Ticket> GetTicketAsync(int id)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
