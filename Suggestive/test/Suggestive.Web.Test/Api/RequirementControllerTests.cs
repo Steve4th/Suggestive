@@ -1,0 +1,30 @@
+﻿using System.Threading.Tasks;
+using Suggestive.Web.Api;
+using Suggestive.Web.Services;
+using Xunit;
+
+namespace Suggestive.Web.Test.Api
+{
+    public class RequirementControllerTests
+    {
+        [Fact]
+        public async Task GetById_IdMatchesTicket_ExpectTicketReturned()
+        {
+            int ticketId = 1;
+            var ticketRepository = new StubTicketRepository();
+            var apiController = new RequirementController(ticketRepository);
+            var result = await apiController.Get(ticketId);
+            Assert.Equal(ticketId, result.Id);
+        }
+
+        [Fact]
+        public async Task GetById_IdNotMatchingTicket_ExpectNoTicketReturned()
+        {
+            int ticketId = -1;
+            var ticketRepository = new StubTicketRepository();
+            var apiController = new RequirementController(ticketRepository);
+            var result = await apiController.Get(ticketId);
+            Assert.Null(result);
+        }
+    }
+}
