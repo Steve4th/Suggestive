@@ -10,11 +10,11 @@ namespace Suggestive.Web.Services
         {
             return new List<Ticket>()
             {
-                new Ticket() {Summary = "A requirement", Status = TicketStatus.ToDo},
-                new Ticket() {Summary = "Requirement Two", Status = TicketStatus.ToDo},
-                new Ticket() {Summary = "Requirement Three", Status = TicketStatus.InProgress},
-                new Ticket() {Summary = "Requirement Four", Status = TicketStatus.Complete},
-                new Ticket() {Summary = "Requirement Five", Status = TicketStatus.Rejected}
+                new Ticket() {Id = 1, Description = "A description of ... One", Summary = "A requirement", Status = TicketStatus.ToDo},
+                new Ticket() {Id = 2, Description = "A description of ... Two", Summary = "Requirement Two", Status = TicketStatus.ToDo},
+                new Ticket() {Id = 3, Description = "A description of ... Three", Summary = "Requirement Three", Status = TicketStatus.InProgress},
+                new Ticket() {Id = 4, Description = "A description of ... Four", Summary = "Requirement Four", Status = TicketStatus.Complete},
+                new Ticket() {Id = 5, Description = "A description of ... Five", Summary = "Requirement Five", Status = TicketStatus.Rejected}
             };
         }
 

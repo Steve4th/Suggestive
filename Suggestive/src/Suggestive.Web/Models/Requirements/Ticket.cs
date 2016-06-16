@@ -2,6 +2,8 @@
 {
     public class Ticket
     {
+        public int Id { get; set; }
+
         public TicketStatus Status { get; set; }
 
         public string Summary { get; set; }
