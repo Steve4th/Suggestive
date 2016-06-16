@@ -26,9 +26,7 @@ namespace Suggestive.Web.Api
         [HttpGet("{id:int}")]
         public async Task<Ticket> Get(int id)
         {
-            var tickets = await _ticketRepository.GetAllTicketsAsync();
-
-            return tickets.First(t => t.Id == id);
+            return await _ticketRepository.GetTicketAsync(id);
         }
     }
 }
