@@ -36,7 +36,7 @@ namespace Suggestive.Web.Test.Services
         public async Task GetTicket_IdNotMatchingARecord_ExpectNullReturned()
         {
             ITicketRepository repo = new JsonTicketRepository("RequirementTickets.json");
-            var ticket = await repo.GetTicketAsync(1);
+            var ticket = await repo.GetTicketAsync(-1);
             Assert.Null(ticket);
         }
     }

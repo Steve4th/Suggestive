@@ -24,9 +24,10 @@ namespace Suggestive.Web.Services
             return await Task.FromResult(this.GetAllTicketsFromJsonFile());
         }
 
-        public Task<Ticket> GetTicketAsync(int id)
+        public async Task<Ticket> GetTicketAsync(int id)
         {
-            throw new System.NotImplementedException();
+            var tickets = await Task.FromResult(this.GetAllTicketsFromJsonFile());
+            return tickets.FirstOrDefault(t => t.Id == id);
         }
 
         private IEnumerable<Ticket> GetAllTicketsFromJsonFile()

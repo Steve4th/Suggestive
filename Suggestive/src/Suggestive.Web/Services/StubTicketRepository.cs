@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Suggestive.Web.Models.Requirements;
 
@@ -23,9 +24,13 @@ namespace Suggestive.Web.Services
             return await Task.Run(() => this.GetAllTickets());
         }
 
-        public Task<Ticket> GetTicketAsync(int id)
+        public async Task<Ticket> GetTicketAsync(int id)
         {
-            throw new System.NotImplementedException();
+            return await Task.Run(() =>
+            {
+                var ticket = this.GetAllTickets();
+                return ticket.FirstOrDefault(t => t.Id == id);
+            });
         }
     }
 }
