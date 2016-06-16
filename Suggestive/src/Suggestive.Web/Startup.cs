@@ -53,7 +53,7 @@ namespace Suggestive.Web
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
-            var ticketsJsonFilePath = "RequirementTickets.json";
+            var ticketsJsonFilePath = Configuration["RequirementTicketsFile"];
             services.AddSingleton<ITicketRepository>(new JsonTicketRepository(ticketsJsonFilePath));
         }
 
