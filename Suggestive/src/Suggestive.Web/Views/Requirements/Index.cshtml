@@ -14,19 +14,7 @@
         <div class="panel panel-info">
             <div class="panel-heading">@TicketStatus.ToDo.GetDisplayName()</div>
             <div class="panel-body">
-                    @foreach (var ticket in Model.ToDoTickets)
-                    {
-                        <div class="list-group">
-                            <a href="#" class="list-group-item">
-                                <h4 class="list-group-item-heading">
-                                    <span class="fa fa-puzzle-piece fa-lg" aria-hidden="true"></span>
-                                    @ticket.Summary
-                                </h4>
-                                <span class="badge">@ticket.Id</span>
-                                <p class="list-group-item-text">@ticket.Description ...</p>
-                            </a>
-                        </div>
-                    }
+                <ticket-list tickets="Model.ToDoTickets"></ticket-list>
             </div>
         </div>
     </div>
@@ -35,20 +23,7 @@
         <div class="panel panel-warning">
             <div class="panel-heading">@TicketStatus.InProgress.GetDisplayName()</div>
             <div class="panel-body">
-                    @foreach (var ticket in Model.InProgressTickets)
-                    {
-                        <div class="list-group">
-                            <a href="#" class="list-group-item">
-
-                                <h4 class="list-group-item-heading">
-                                    <span class="fa fa-puzzle-piece fa-lg" aria-hidden="true"></span>
-                                    @ticket.Summary
-                                </h4>
-                                <span class="badge">@ticket.Id</span>
-                                <p class="list-group-item-text">@ticket.Description ...</p>
-                            </a>
-                        </div>
-                    }
+                    <ticket-list tickets="Model.InProgressTickets"></ticket-list>
             </div>
         </div>
     </div>
@@ -56,20 +31,7 @@
         <div class="panel panel-success">
             <div class="panel-heading">@TicketStatus.Complete.GetDisplayName()</div>
             <div class="panel-body">
-                @foreach (var ticket in Model.CompletedTickets)
-                {
-                    <div class="list-group">
-                        <a href="#" class="list-group-item">
-
-                            <h4 class="list-group-item-heading">
-                                <span class="fa fa-puzzle-piece fa-lg" aria-hidden="true"></span>
-                                @ticket.Summary
-                            </h4>
-                            <span class="badge">@ticket.Id</span>
-                            <p class="list-group-item-text">@ticket.Description ...</p>
-                        </a>
-                    </div>
-                }
+                <ticket-list tickets="Model.CompletedTickets"></ticket-list>
             </div>
         </div>
     </div>
