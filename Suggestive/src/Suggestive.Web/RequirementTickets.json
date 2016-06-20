@@ -1,32 +1,56 @@
 ﻿[
   {
-    "Id":  1,
-    "Status": "ToDo",
-    "Summary": "A requirement",
-    "Description": "I want it all....."
+    "Id": 1,
+    "Status": "Complete",
+    "Summary": "Add user registration",
+    "Description": "As a user I want to be able to register so that my suggestions and votes can be attributed."
   },
   {
     "Id": 2,
     "Status": "ToDo",
-    "Summary": "Requirement Two",
-    "Description": "And I want it now"
+    "Summary": "Allow user to login using Google credentials",
+    "Description": "As a user I want to be able to identify myself using alternative credentials so that I do not have to remember site specific login details."
   },
   {
     "Id": 3,
-    "Status": "InProgress",
-    "Summary": "Requirement Three",
-    "Description": "3 little kittens"
+    "Status": "ToDo",
+    "Summary": "Allow user to login using Twitter credentials",
+    "Description": "As a user I want to be able to identify myself using alternative credentials so that I do not have to remember site specific login details."
   },
   {
     "Id": 4,
-    "Status": "Rejected",
-    "Summary": "Requirement Four",
-    "Description": "Feel the fourth"
+    "Status": "ToDo",
+    "Summary": "Allow user to login using Microsoft credentials",
+    "Description": "As a user I want to be able to identify myself using alternative credentials so that I do not have to remember site specific login details."
   },
   {
     "Id": 5,
-    "Status": "Complete",
-    "Summary": "Requirement Five",
-    "Description": "Five out of 3 isn't bad"
+    "Status": "ToDo",
+    "Summary": "Create a Suggestion",
+    "Description": "As an authenticated user I want to create a new suggestion record so this can be shared with others"
+  },
+  {
+    "Id": 6,
+    "Status": "ToDo",
+    "Summary": "Update a Suggestion",
+    "Description": "As an authenticated user I want to update a suggestion record that I created so that I can correct mistakes and add additional information"
+  },
+  {
+    "Id": 7,
+    "Status": "ToDo",
+    "Summary": "Add tags to a suggestion record",
+    "Description": "As an authenticated user I want to append one or more 'tags' to a suggestion record so that the record can be categorised."
+  },
+  {
+    "Id": 8,
+    "Status": "InProgress",
+    "Summary": "List suggestion records",
+    "Description": "As a visitor to the site I want to see a list of existing suggestions."
+  },
+  {
+    "Id": 9,
+    "Status": "ToDo",
+    "Summary": "Add a comment to a suggestion record",
+    "Description": "As an authenticated user I want to append one or more comments to a suggestion record so that I can ask/answer questions about it."
   }
 ]
