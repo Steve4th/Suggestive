@@ -13,7 +13,7 @@ namespace Suggestive.Web.Test.Api
         {
             int ticketId = 1;
             var ticketRepository = new StubTicketRepository();
-            var apiController = new RequirementController(ticketRepository);
+            var apiController = new RequirementsController(ticketRepository);
             var result = await apiController.Get(ticketId);
             Assert.Equal(ticketId, result.Id);
         }
@@ -23,7 +23,7 @@ namespace Suggestive.Web.Test.Api
         {
             int ticketId = -1;
             var ticketRepository = new StubTicketRepository();
-            var apiController = new RequirementController(ticketRepository);
+            var apiController = new RequirementsController(ticketRepository);
             var result = await apiController.Get(ticketId);
             Assert.Null(result);
         }
@@ -32,7 +32,7 @@ namespace Suggestive.Web.Test.Api
         public async Task Get_RequestAllTickets_ExpectTicketsReturned()
         {
             var ticketRepository = new StubTicketRepository();
-            var apiController = new RequirementController(ticketRepository);
+            var apiController = new RequirementsController(ticketRepository);
             var result = await apiController.Get();
             Assert.True(result.Any(),"Expected one or more tickets returned");
         }

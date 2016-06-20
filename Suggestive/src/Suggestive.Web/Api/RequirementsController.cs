@@ -8,11 +8,11 @@ using Suggestive.Web.Services;
 namespace Suggestive.Web.Api
 {
     [Route("api/[controller]")]
-    public class RequirementController: Controller
+    public class RequirementsController: Controller
     {
         private readonly ITicketRepository _ticketRepository;
 
-        public RequirementController(ITicketRepository ticketRepository)
+        public RequirementsController(ITicketRepository ticketRepository)
         {
             _ticketRepository = ticketRepository;
         }
