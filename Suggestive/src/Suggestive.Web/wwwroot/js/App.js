@@ -20,6 +20,10 @@
             description: "fly me to the moon"
         }];
 
-    }
+        vm.newSuggestion = {};
 
+        vm.addSuggestion = function () {
+            vm.suggestions.push(vm.newSuggestion);
+        }
+    }
 })();

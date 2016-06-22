@@ -9,13 +9,15 @@
             </tr>
         </table>
 
-        <form novalidate name="newSuggestionForm">
+        <form novalidate name="newSuggestionForm" ng-submit="vm.addSuggestion()">
             <div class="form-group">
                 <label for="title">Title</label>
-                <input class="form-control" type="text" id="title" name="title" />
+                <input class="form-control" type="text" id="title" name="title" ng-model="vm.newSuggestion.title" required ng-minlength="5" />
+                <span ng-show="newSuggestionForm.title.$error.required" class="text-warning">Title is required</span>
+                <span ng-show="newSuggestionForm.title.$error.minlength" class="text-warning">Title must be longer than 4 letters</span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Add" class="btn btn-sm btn-success" />
+                <input type="submit" value="Add" class="btn btn-sm btn-success" ng-disabled="newSuggestionForm.$invalid"/>
             </div>
         </form>
     </div>
