@@ -51,4 +51,9 @@ gulp.task("bootswatch:css", function() {
         .pipe(gulp.dest("."));
 });
 
-gulp.task("min", ["min:js", "min:css", "bootswatch:css"]);
+gulp.task("publish:angular", function() {
+    return gulp.src(['./node_modules/angular/angular.min.js', './node_modules/angular/angular.min.js.map'])
+        .pipe(gulp.dest(paths.webroot + "lib/"));
+});
+
+gulp.task("publish", ["min:js", "min:css", "bootswatch:css", "publish:angular"]);
