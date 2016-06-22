@@ -1,5 +1,7 @@
 ﻿<div ng-app="suggestive">
-    <h1>{{ "Two plus Two = " + (2 + 2) }}</h1>
+    <div ng-controller="suggestionController as vm">
+        {{ vm.name }}
+    </div>
 </div>
 
 @section Scripts {
