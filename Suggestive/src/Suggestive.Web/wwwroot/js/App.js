@@ -10,7 +10,15 @@
 
         var vm = this;
 
-        vm.name = "suggestion please";
+        vm.suggestions = [{
+            title: "suggestion one",
+            createdOn: new Date(),
+            description: "Change the world to be a better place"
+        }, {
+            title: "suggestion two",
+            createdOn: new Date(),
+            description: "fly me to the moon"
+        }];
 
     }
 
