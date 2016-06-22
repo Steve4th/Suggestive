@@ -1,0 +1,12 @@
+﻿<h1>App Here</h1>
+
+@section Scripts {
+    <environment names="Development">
+        <script src="~/lib/angular.min.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://code.angularjs.org/1.5.7/angular.min.js"
+                asp-fallback-src="~/lib/angular.min.js">
+        </script>
+    </environment>
+}
