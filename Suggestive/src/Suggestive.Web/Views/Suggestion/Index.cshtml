@@ -1,4 +1,6 @@
-﻿<h1>App Here</h1>
+﻿<div ng-app="suggestive">
+    <h1>{{ "Two plus Two = " + (2 + 2) }}</h1>
+</div>
 
 @section Scripts {
     <environment names="Development">
@@ -7,6 +9,9 @@
     <environment names="Staging,Production">
         <script src="https://code.angularjs.org/1.5.7/angular.min.js"
                 asp-fallback-src="~/lib/angular.min.js">
+        
         </script>
     </environment>
+
+    <script src="~/js/app.js"></script>
 }
