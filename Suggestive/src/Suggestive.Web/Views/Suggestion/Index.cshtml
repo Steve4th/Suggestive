@@ -1,5 +1,8 @@
 ﻿<div ng-app="suggestive">
     <div ng-controller="suggestionController as vm">
+
+        <div class="text-danger" ng-show="vm.errorMessage">{{ vm.errorMessage }}</div>
+
         <table class="table table-responsive table-striped">
             <tr ng-repeat="suggestion in vm.suggestions">
                 <td>{{suggestion.title}}</td>

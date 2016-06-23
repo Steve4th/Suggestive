@@ -6,28 +6,33 @@
     angular.module("suggestive")
         .controller("suggestionController", suggestionController)
 
-    function suggestionController() {
+    function suggestionController($http) {
 
         var vm = this;
 
-        vm.suggestions = [{
-            title: "suggestion one",
-            createdOn: new Date(),
-            description: "Change the world to be a better place"
-        }, {
-            title: "suggestion two",
-            createdOn: new Date(),
-            description: "fly me to the moon"
-        }];
+        vm.suggestions = [];
 
         vm.newSuggestion = {};
+
+        vm.errorMessage = "";
 
         vm.addSuggestion = function () {
             vm.suggestions.push({
                 title: vm.newSuggestion.title,
-                createdOn: new Date()
+                createdOn: new Date(),
+                description: ""
             });
             vm.newSuggestion = {};
         }
+
+        $http.get("/api/suggestions")
+            .then(function (response) {
+                //success
+                angular.copy(response.data, vm.suggestions)
+            },
+            function (error) {
+                //failure
+                vm.errorMessage = "Problem getting suggestions: " + error.status + " - " + error.statusText;
+            });
     }
 })();
