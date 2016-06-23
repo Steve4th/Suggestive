@@ -12,6 +12,7 @@ using Suggestive.Web.Models;
 using Suggestive.Web.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Newtonsoft.Json.Serialization;
 
 namespace Suggestive.Web
 {
@@ -48,7 +49,10 @@ namespace Suggestive.Web
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddMvc();
+            services.AddMvc()
+                .AddJsonOptions(opt => {
+                    opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                });
 
             services.AddSwaggerGen();
 
