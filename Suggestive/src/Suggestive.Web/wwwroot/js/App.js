@@ -23,7 +23,11 @@
         vm.newSuggestion = {};
 
         vm.addSuggestion = function () {
-            vm.suggestions.push(vm.newSuggestion);
+            vm.suggestions.push({
+                title: vm.newSuggestion.title,
+                createdOn: new Date()
+            });
+            vm.newSuggestion = {};
         }
     }
 })();
