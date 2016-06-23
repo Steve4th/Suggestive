@@ -3,6 +3,8 @@
 
         <div class="text-danger" ng-show="vm.errorMessage">{{ vm.errorMessage }}</div>
 
+        <h3 ng-show="vm.isBusy" class="text-center"><span class="fa fa-spinner fa-spin"></span> Getting some data...</h3>
+
         <table class="table table-responsive table-striped">
             <tr ng-repeat="suggestion in vm.suggestions">
                 <td>{{suggestion.title}}</td>

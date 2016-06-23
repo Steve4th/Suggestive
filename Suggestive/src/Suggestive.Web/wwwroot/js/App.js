@@ -15,6 +15,7 @@
         vm.newSuggestion = {};
 
         vm.errorMessage = "";
+        vm.isBusy = true;
 
         vm.addSuggestion = function () {
             vm.suggestions.push({
@@ -33,6 +34,9 @@
             function (error) {
                 //failure
                 vm.errorMessage = "Problem getting suggestions: " + error.status + " - " + error.statusText;
-            });
+            })
+        .finally(function () {
+            vm.isBusy = false;
+        });
     }
 })();
