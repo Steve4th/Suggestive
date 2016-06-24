@@ -3,12 +3,20 @@ using Suggestive.Web.Models.Suggestions;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
+using Suggestive.Web.Services;
 
 namespace Suggestive.Web.Api
 {
     [Route("api/[controller]")]
     public class SuggestionsController: Controller
     {
+        private readonly ISuggestionRepository _suggestionRepository;
+
+        public SuggestionsController(ISuggestionRepository suggestionRepository)
+        {
+            _suggestionRepository = suggestionRepository;
+        }
+
         [HttpGet]
         public async Task<IEnumerable<Suggestion>> Get()
         {
@@ -28,26 +36,19 @@ namespace Suggestive.Web.Api
         [Consumes("application/json")]
         public async Task<IActionResult> Post([FromBody] Suggestion newSuggestion)
         {
-            await Task.Delay(300);
-
             if (!ModelState.IsValid)
             {
-                return this.BadRequest(ModelState);
+                return BadRequest(ModelState);
             }
 
-            return CreatedAtAction(nameof(Get), new { id = newSuggestion.Id }, newSuggestion);
+            var savedSuggestion = await _suggestionRepository.AddSuggestionAsync(newSuggestion);
+
+            return CreatedAtAction(nameof(Get), new { id = savedSuggestion.Id }, savedSuggestion);
         }
 
         private async Task<IEnumerable<Suggestion>> GetAllSuggestionsAsync()
         {
-            return await Task.Run(() =>
-            {
-                return new List<Suggestion>()
-                {
-                    new Suggestion() { Title = "Suggestion One", Description = "Fly me to the moon...." },
-                    new Suggestion() { Title = "Suggestion Two", Description = "Sail the seven seas of ryme.." }
-                };
-            });
+            return await _suggestionRepository.GetSuggestionsAsync();
         }
     }
 }

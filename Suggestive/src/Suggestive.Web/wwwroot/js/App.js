@@ -40,7 +40,7 @@
 
         vm.saveSuggestion = function () {
             $http.post("/api/suggestions/", vm.newSuggestion)
-                .then(function (reponse) {
+                .then(function (response) {
                     vm.suggestions.push(response.data);
                 }, function (error) {
                     vm.errorMessage = "Failed to save suggestion: " + error.status + " - " + error.statusText;

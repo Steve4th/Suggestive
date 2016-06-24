@@ -61,6 +61,7 @@ namespace Suggestive.Web
             services.AddTransient<ISmsSender, AuthMessageSender>();
             var ticketsJsonFilePath = Configuration["RequirementTicketsFile"];
             services.AddSingleton<ITicketRepository>(new JsonTicketRepository(ticketsJsonFilePath));
+            services.AddSingleton<ISuggestionRepository, InMemorySuggestionRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
