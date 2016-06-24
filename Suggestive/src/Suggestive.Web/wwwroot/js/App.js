@@ -1,7 +1,7 @@
 ﻿(function () {
     "use strict";
 
-    angular.module("suggestive", []);
+    angular.module("suggestive", ["controls"]);
 
     angular.module("suggestive")
         .controller("suggestionController", suggestionController)
@@ -46,5 +46,14 @@
                     vm.errorMessage = "Failed to save suggestion: " + error.status + " - " + error.statusText;
                 });
         }
+    }
+
+    angular.module("controls", [])
+            .directive("waitCursor", waitCursor);
+
+    function waitCursor() {
+        return {
+            templateUrl: "/waitCursor.html"
+        };
     }
 })();
