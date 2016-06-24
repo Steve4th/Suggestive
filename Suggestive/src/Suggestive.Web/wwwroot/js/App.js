@@ -18,12 +18,17 @@
         vm.isBusy = true;
 
         vm.addSuggestion = function () {
-            vm.suggestions.push({
-                title: vm.newSuggestion.title,
-                createdOn: new Date(),
-                description: ""
-            });
+            vm.isBusy = true;
+            vm.errorMessage = "";
+
+            vm.saveSuggestion();
+            //vm.suggestions.push({
+            //    title: vm.newSuggestion.title,
+            //    createdOn: new Date(),
+            //    description: ""
+            //});
             vm.newSuggestion = {};
+            vm.isBusy = false;
         }
 
         $http.get("/api/suggestions")
@@ -38,5 +43,15 @@
         .finally(function () {
             vm.isBusy = false;
         });
+
+        vm.saveSuggestion = function () {
+            $http.post("/api/suggestions/", vm.newSuggestion)
+                .then(function (reponse) {
+                    vm.suggestions.push(response.data);
+
+                }, function (error) {
+                    vm.errorMessage = "Failed to save suggestion: " + error.status + " - " + error.statusText;
+                });
+        }
     }
 })();
