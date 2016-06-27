@@ -3,7 +3,7 @@
 
         <div class="text-danger" ng-show="vm.errorMessage">{{ vm.errorMessage }}</div>
 
-        <wait-cursor ng-show="vm.isBusy"></wait-cursor>
+        <wait-cursor display-when="vm.isBusy"></wait-cursor>
 
         <table class="table table-responsive table-striped">
             <tr ng-repeat="suggestion in vm.suggestions">
@@ -35,7 +35,6 @@
     <environment names="Staging,Production">
         <script src="https://code.angularjs.org/1.5.7/angular.min.js"
                 asp-fallback-src="~/lib/angular.min.js">
-        
         </script>
     </environment>
 
