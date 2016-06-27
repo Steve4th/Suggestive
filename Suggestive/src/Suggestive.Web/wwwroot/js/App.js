@@ -10,7 +10,7 @@
                 templateUrl: "/app-views/suggestive.html"
             });
 
-            $routeProvider.when("/editor/:suggestionTitle", {
+            $routeProvider.when("/editor/:suggestionId", {
                 controller: "suggestionEditorController",
                 controllerAs: "vm",
                 templateUrl: "/app-views/suggestionEditor.html"
@@ -72,7 +72,11 @@
     function suggestionEditorController($routeParams) {
         var vm = this;
 
-        vm.Title = $routeParams.suggestionTitle;
+        vm.errorMessage = "";
+        vm.isBusy = true;
+        vm.Title = $routeParams.suggestionId;
+        vm.suggestion = {};
+
     }
 
 // Suggestive.Controls.WaitCursor
