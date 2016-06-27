@@ -1,9 +1,32 @@
 <div>
-    <h3>Editor - {{ vm.Title }}</h3>
+    <h3>Editor - {{ vm.suggestionId }}</h3>
 
     <wait-cursor display-when="vm.isBusy"></wait-cursor>
 
     <div class="alert alert-danger" ng-show="vm.errorMessage">{{ vm.errorMessage }}</div>    
+
+
+    <form novalidate name="updateSuggestionForm" ng-submit="vm.updateSuggestion()">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input class="form-control" type="text" id="title" name="title" ng-model="vm.suggestion.title" required ng-minlength="5" />
+            <span ng-show="updateSuggestionForm.title.$error.required" class="text-warning">Title is required</span>
+            <span ng-show="updateSuggestionForm.title.$error.minlength" class="text-warning">Title must be longer than 4 letters</span>
+        </div>
+        <div class-"from-group">
+            <label for="description">Description</label>
+            <input class="form-control" type="text" id="description" name="description" ng-model="vm.suggestion.description" required ng-maxlength="255" />
+            <span ng-show="updateSuggestionForm.description.$error.required" class="text-warning">Description is required</span>
+            <span ng-show="updateSuggestionForm.description.$error.maxlength" class="text-warning">Description must be shorter than 255 letters</span>
+        </div>
+        <div class="form-group">
+            <label for="createdOn">Created On</label>
+            <input class="form-control" type="text" ng-model="vm.suggestion.createdOn" ng-disabled="true" />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-sm btn-success" ng-disabled="updateSuggestionForm.$invalid" />
+        </div>
+    </form>
 
     <a href="#/" class="btn btn-sm btn-default"><span class="fa fa-angle-left"></span> Back</a>
 </div>

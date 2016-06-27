@@ -69,13 +69,27 @@
     angular.module("suggestive")
         .controller("suggestionEditorController", suggestionEditorController);
 
-    function suggestionEditorController($routeParams) {
+    function suggestionEditorController($routeParams, $http) {
         var vm = this;
 
         vm.errorMessage = "";
         vm.isBusy = true;
-        vm.Title = $routeParams.suggestionId;
+        vm.suggestionId = $routeParams.suggestionId;
         vm.suggestion = {};
+        
+        vm.getSuggestion = function () {
+            $http.get("/api/suggestions/" + vm.suggestionId)
+                .then(function(response) {
+                    angular.copy(response.data, vm.suggestion)
+                }, 
+                function(error) {
+                    vm.errorMessage = "Problem getting suggestion: " + error.status + " - " + error.statusText;
+                })
+                .finally(function() {
+                    vm.isBusy = false;
+                });
+        }
+        vm.getSuggestion();
 
     }
 
