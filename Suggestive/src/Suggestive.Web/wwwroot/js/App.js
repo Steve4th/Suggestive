@@ -53,6 +53,7 @@
 
     function waitCursor() {
         return {
+            restrict: "E",
             templateUrl: "/waitCursor.html"
         };
     }
