@@ -1,8 +1,19 @@
 ﻿(function () {
     "use strict";
 
-    angular.module("suggestive", ["controls"]);
+//App startup/bootstraoping
+    angular.module("suggestive", ["controls", "ngRoute"])
+        .config(function ($routeProvider) {
+            $routeProvider.when("/", {
+                controller: "suggestionController",
+                controllerAs: "vm",
+                templateUrl: "/app-views/suggestive.html"
+            });
 
+            $routeProvider.otherwise({ redirectTo: "/" });
+        });
+
+//Suggestive.Controllers.Suggestive
     angular.module("suggestive")
         .controller("suggestionController", suggestionController)
 
@@ -48,6 +59,7 @@
         }
     }
 
+// Suggestive.Controls.WaitCursor
     angular.module("controls", [])
             .directive("waitCursor", waitCursor);
 
@@ -57,7 +69,7 @@
                 show: "=displayWhen"
             },
             restrict: "E",
-            templateUrl: "/waitCursor.html"
+            templateUrl: "/app-views/waitCursor.html"
         };
     }
 })();

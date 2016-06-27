@@ -1,0 +1,29 @@
+﻿<div>
+
+    <div class="text-danger" ng-show="vm.errorMessage">{{ vm.errorMessage }}</div>
+
+    <wait-cursor display-when="vm.isBusy"></wait-cursor>
+
+    <table class="table table-responsive table-striped">
+        <tr ng-repeat="suggestion in vm.suggestions">
+            <td>{{suggestion.title}}</td>
+            <td>{{suggestion.description}}</td>
+            <td>{{suggestion.createdOn | date:'fullDate' }}</td>
+            <td><a href="#" class="btn btn-sm btn-primary">Edit</a></td>
+        </tr>
+    </table>
+
+    <form novalidate name="newSuggestionForm" ng-submit="vm.addSuggestion()">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input class="form-control" type="text" id="title" name="title" ng-model="vm.newSuggestion.title" required ng-minlength="5"
+            />
+            <span ng-show="newSuggestionForm.title.$error.required" class="text-warning">Title is required</span>
+            <span ng-show="newSuggestionForm.title.$error.minlength" class="text-warning">Title must be longer than 4 letters</span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Add" class="btn btn-sm btn-success" ng-disabled="newSuggestionForm.$invalid" />
+        </div>
+    </form>
+
+</div>
