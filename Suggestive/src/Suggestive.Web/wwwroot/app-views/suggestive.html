@@ -9,7 +9,7 @@
             <td>{{suggestion.title}}</td>
             <td>{{suggestion.description}}</td>
             <td>{{suggestion.createdOn | date:'fullDate' }}</td>
-            <td><a href="#/editor" class="btn btn-sm btn-primary">Edit</a></td>
+            <td><a ng-href="#/editor/{{suggestion.title}}" class="btn btn-sm btn-primary">Edit</a></td>
         </tr>
     </table>
 

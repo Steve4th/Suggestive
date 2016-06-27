@@ -10,7 +10,7 @@
                 templateUrl: "/app-views/suggestive.html"
             });
 
-            $routeProvider.when("/editor", {
+            $routeProvider.when("/editor/:suggestionTitle", {
                 controller: "suggestionEditorController",
                 controllerAs: "vm",
                 templateUrl: "/app-views/suggestionEditor.html"
@@ -69,10 +69,10 @@
     angular.module("suggestive")
         .controller("suggestionEditorController", suggestionEditorController);
 
-    function suggestionEditorController() {
+    function suggestionEditorController($routeParams) {
         var vm = this;
 
-        vm.Title = "What is the ultimate question?";
+        vm.Title = $routeParams.suggestionTitle;
     }
 
 // Suggestive.Controls.WaitCursor
