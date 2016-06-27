@@ -10,12 +10,18 @@
                 templateUrl: "/app-views/suggestive.html"
             });
 
+            $routeProvider.when("/editor", {
+                controller: "suggestionEditorController",
+                controllerAs: "vm",
+                templateUrl: "/app-views/suggestionEditor.html"
+            });
+
             $routeProvider.otherwise({ redirectTo: "/" });
         });
 
 //Suggestive.Controllers.Suggestive
     angular.module("suggestive")
-        .controller("suggestionController", suggestionController)
+        .controller("suggestionController", suggestionController);
 
     function suggestionController($http) {
 
@@ -57,6 +63,14 @@
                     vm.errorMessage = "Failed to save suggestion: " + error.status + " - " + error.statusText;
                 });
         }
+    }
+
+//Suggestive.Controllers.Suggestive
+    angular.module("suggestive")
+        .controller("suggestionEditorController", suggestionEditorController);
+
+    function suggestionEditorController() {
+        
     }
 
 // Suggestive.Controls.WaitCursor
