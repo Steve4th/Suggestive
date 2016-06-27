@@ -70,7 +70,9 @@
         .controller("suggestionEditorController", suggestionEditorController);
 
     function suggestionEditorController() {
-        
+        var vm = this;
+
+        vm.Title = "What is the ultimate question?";
     }
 
 // Suggestive.Controls.WaitCursor
