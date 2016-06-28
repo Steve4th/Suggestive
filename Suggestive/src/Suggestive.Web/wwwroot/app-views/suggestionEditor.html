@@ -3,7 +3,8 @@
 
     <wait-cursor display-when="vm.isBusy"></wait-cursor>
 
-    <div class="alert alert-danger" ng-show="vm.errorMessage">{{ vm.errorMessage }}</div>    
+    <div class="alert alert-danger" ng-show="vm.errorMessage">{{ vm.errorMessage }}</div>
+    <div class="alert alert-success" ng-show="vm.statusMessage">{{ vm.statusMessage }}</div>        
 
 
     <form novalidate name="updateSuggestionForm" ng-submit="vm.updateSuggestion()">

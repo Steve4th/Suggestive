@@ -73,6 +73,7 @@
         var vm = this;
 
         vm.errorMessage = "";
+        vm.statusMessage = "";
         vm.isBusy = true;
         vm.suggestionId = $routeParams.suggestionId;
         vm.suggestion = {};
@@ -91,6 +92,15 @@
         }
         vm.getSuggestion();
 
+        vm.updateSuggestion = function () {
+            $http.put("/api/suggestions/", vm.suggestion)
+                .then(function (response) {
+                    angular.copy(response.data, vm.suggestion);
+                    vm.statusMessage = "Suggestion updated successfully";
+                }, function (error) {
+                    vm.errorMessage = "Failed to save suggestion: " + error.status + " - " + error.statusText;
+                });
+        }
     }
 
 // Suggestive.Controls.WaitCursor
