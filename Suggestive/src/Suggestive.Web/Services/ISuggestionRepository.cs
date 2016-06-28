@@ -8,5 +8,6 @@ namespace Suggestive.Web.Services
     {
         Task<IEnumerable<Suggestion>> GetSuggestionsAsync();
         Task<Suggestion> AddSuggestionAsync(Suggestion suggestionToBeAdded);
+        Task UpdateSuggestionAsync(Suggestion suggestionToUpdate);
     }
 }

@@ -46,6 +46,22 @@ namespace Suggestive.Web.Api
             return CreatedAtAction(nameof(Get), new { id = savedSuggestion.Id }, savedSuggestion);
         }
 
+        [HttpPut("{id:int}")]
+        [Produces("application/json", Type = typeof(Suggestion))]
+        [Consumes("application/json")]
+        public async Task<IActionResult> Put(int id, [FromBody] Suggestion suggestionToUpdate)
+        {
+            if (!ModelState.IsValid) 
+            {
+                return BadRequest();
+            }
+
+            //todo - do the update!
+            await _suggestionRepository.UpdateSuggestionAsync(suggestionToUpdate);
+
+            return new NoContentResult();
+        }
+
         private async Task<IEnumerable<Suggestion>> GetAllSuggestionsAsync()
         {
             return await _suggestionRepository.GetSuggestionsAsync();

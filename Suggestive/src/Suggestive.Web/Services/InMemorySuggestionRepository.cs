@@ -11,18 +11,35 @@ namespace Suggestive.Web.Services
 
         public async Task<Suggestion> AddSuggestionAsync(Suggestion suggestionToBeAdded)
         {
-            var suggestionToBeStored = suggestionToBeAdded.DeepCopy();
+            return await Task.Run(() => 
+            {
+                var suggestionToBeStored = suggestionToBeAdded.DeepCopy();
 
-            suggestionToBeStored.Id = GetNextId();
+                suggestionToBeStored.Id = GetNextId();
 
-            _SuggestionStore.Add(suggestionToBeStored);
+                _SuggestionStore.Add(suggestionToBeStored);
 
-            return suggestionToBeStored;
+                return suggestionToBeStored;
+            });
         }
 
         public async Task<IEnumerable<Suggestion>> GetSuggestionsAsync()
         {
-            return _SuggestionStore.AsEnumerable();
+            return await Task.Run(() => 
+            {
+                 return _SuggestionStore.AsEnumerable(); 
+            });
+        }
+
+        public async Task UpdateSuggestionAsync(Suggestion suggestionToUpdate)
+        {
+            await Task.Run(() => 
+            {
+                var previousVersion = _SuggestionStore.Single(s => s.Id == suggestionToUpdate.Id);
+                var nextVersion = suggestionToUpdate.DeepCopy();
+                _SuggestionStore.Remove(previousVersion);
+                _SuggestionStore.Add(nextVersion);
+            });
         }
 
         private int GetNextId()
