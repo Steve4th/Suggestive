@@ -93,9 +93,8 @@
         vm.getSuggestion();
 
         vm.updateSuggestion = function () {
-            $http.put("/api/suggestions/", vm.suggestion)
+            $http.put("/api/suggestions/"  + vm.suggestionId, vm.suggestion)
                 .then(function (response) {
-                    angular.copy(response.data, vm.suggestion);
                     vm.statusMessage = "Suggestion updated successfully";
                 }, function (error) {
                     vm.errorMessage = "Failed to save suggestion: " + error.status + " - " + error.statusText;
