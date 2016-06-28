@@ -3,18 +3,18 @@
 </div>
 
 @section Scripts {
-    <!--<environment names="Development">-->
+    <environment names="Development">
         <script src="~/lib/angular.min.js"></script>
         <script src="~/lib/angular-route.min.js"></script>
         <script src="~/js/app.js"></script>
-    <!--</environment>
+    </environment>
     <environment names="Staging,Production">
-        <script src="https://code.angularjs.org/1.5.7/angular.min.js"
+        <script src="//code.angularjs.org/1.5.7/angular.min.js"
                 asp-fallback-src="~/lib/angular.min.js">
         </script>
-        <script asrc="https://code.angularjs.org/1.5.7/angular-route.min.js"
+        <script src="//code.angularjs.org/1.5.7/angular-route.min.js"
                 asp-fallback-src="~/lib/angular-route.min.js"></script>
-        <script src="~/js/app.js"></script>
-    </environment>-->
+        <script src="~/js/app.min.js"></script>
+    </environment>
 
 }
