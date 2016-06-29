@@ -2,7 +2,7 @@
     "use strict";
 
 //App startup/bootstraoping
-    angular.module("suggestive", ["controls", "ngRoute"])
+    angular.module("app", ["controls", "ngRoute"])
         .config(function ($routeProvider) {
             $routeProvider.when("/", {
                 controller: "suggestionController",
@@ -20,7 +20,7 @@
         });
 
 //Suggestive.Controllers.Suggestive
-    angular.module("suggestive")
+    angular.module("app")
         .controller("suggestionController", suggestionController);
 
     function suggestionController($http) {
@@ -66,7 +66,7 @@
     }
 
 //Suggestive.Controllers.Suggestive
-    angular.module("suggestive")
+    angular.module("app")
         .controller("suggestionEditorController", suggestionEditorController);
 
     function suggestionEditorController($routeParams, $http) {
