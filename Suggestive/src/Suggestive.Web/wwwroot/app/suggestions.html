@@ -2,7 +2,7 @@
 
     <div class="text-danger" ng-show="vm.errorMessage">{{ vm.errorMessage }}</div>
 
-    <wait-cursor display-when="vm.isBusy"></wait-cursor>
+    <sg-wait-cursor display-when="vm.isBusy"></sg-wait-cursor>
 
     <table class="table table-responsive table-striped">
         <tr ng-repeat="suggestion in vm.suggestions">

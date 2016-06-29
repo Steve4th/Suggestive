@@ -1,7 +1,7 @@
 <div>
     <h3>Editor - {{ vm.suggestionId }}</h3>
 
-    <wait-cursor display-when="vm.isBusy"></wait-cursor>
+    <sg-wait-cursor display-when="vm.isBusy"></sg-wait-cursor>
 
     <div class="alert alert-danger" ng-show="vm.errorMessage">{{ vm.errorMessage }}</div>
     <div class="alert alert-success" ng-show="vm.statusMessage">{{ vm.statusMessage }}</div>        
