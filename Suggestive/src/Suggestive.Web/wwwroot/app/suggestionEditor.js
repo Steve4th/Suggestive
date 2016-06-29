@@ -1,7 +1,7 @@
 angular.module("app")
-    .controller("suggestionEditorController", suggestionEditorController);
+    .controller("SuggestionEditor", SuggestionEditor);
 
-function suggestionEditorController($routeParams, $http) {
+function SuggestionEditor($routeParams, $http) {
     var vm = this;
 
     vm.errorMessage = "";

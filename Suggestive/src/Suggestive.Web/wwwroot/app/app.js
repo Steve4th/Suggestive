@@ -5,13 +5,13 @@
     angular.module("app", ["controls", "ngRoute"])
         .config(function ($routeProvider) {
             $routeProvider.when("/", {
-                controller: "suggestionsController",
+                controller: "Suggestions",
                 controllerAs: "vm",
                 templateUrl: "/app/suggestions.html"
             });
 
             $routeProvider.when("/editor/:suggestionId", {
-                controller: "suggestionEditorController",
+                controller: "SuggestionEditor",
                 controllerAs: "vm",
                 templateUrl: "/app/suggestionEditor.html"
             });

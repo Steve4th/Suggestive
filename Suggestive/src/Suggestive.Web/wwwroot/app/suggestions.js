@@ -1,7 +1,7 @@
 angular.module("app")
-    .controller("suggestionsController", suggestionsController);
+    .controller("Suggestions", Suggestions);
 
-function suggestionsController($http) {
+function Suggestions($http) {
 
     var vm = this;
 
