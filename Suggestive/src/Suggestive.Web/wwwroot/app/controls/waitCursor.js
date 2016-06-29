@@ -7,6 +7,6 @@ function waitCursor() {
             show: "=displayWhen"
         },
         restrict: "E",
-        templateUrl: "/app/waitCursor.html"
+        templateUrl: "/app/controls/waitCursor.html"
     };
 }
