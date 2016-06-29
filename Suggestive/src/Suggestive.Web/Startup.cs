@@ -68,17 +68,20 @@ namespace Suggestive.Web
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
 
             if (env.IsDevelopment())
             {
                 app.UseBrowserLink();
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
+
+                loggerFactory.AddDebug();
             }
             else
             {
                 app.UseExceptionHandler("/Home/Error");
+
+                loggerFactory.AddDebug(LogLevel.Error);
             }
 
             app.UseStaticFiles();
