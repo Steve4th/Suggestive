@@ -7,13 +7,13 @@
             $routeProvider.when("/", {
                 controller: "suggestionController",
                 controllerAs: "vm",
-                templateUrl: "/app-views/suggestive.html"
+                templateUrl: "/app/suggestive.html"
             });
 
             $routeProvider.when("/editor/:suggestionId", {
                 controller: "suggestionEditorController",
                 controllerAs: "vm",
-                templateUrl: "/app-views/suggestionEditor.html"
+                templateUrl: "/app/suggestionEditor.html"
             });
 
             $routeProvider.otherwise({ redirectTo: "/" });
@@ -112,7 +112,7 @@
                 show: "=displayWhen"
             },
             restrict: "E",
-            templateUrl: "/app-views/waitCursor.html"
+            templateUrl: "/app/waitCursor.html"
         };
     }
 })();
