@@ -1,9 +1,10 @@
-(function () {
+
+SuggestionEditor.$inject = ["$routeParams", "$http"];(function () {
     "use strict";
 
 //App startup/bootstraoping
     angular.module("app", ["controls", "ngRoute"])
-        .config(function ($routeProvider) {
+        .config(["$routeProvider", function ($routeProvider) {
             $routeProvider.when("/", {
                 controller: "Suggestions",
                 controllerAs: "vm",
@@ -17,7 +18,7 @@
             });
 
             $routeProvider.otherwise({ redirectTo: "/" });
-        });
+        }]);
 })();
 angular.module("app")
     .controller("SuggestionEditor", SuggestionEditor);
@@ -55,6 +56,7 @@ function SuggestionEditor($routeParams, $http) {
     }
 }
 (function() {
+    Suggestions.$inject = ["$http", "dataService"];
     angular.module("app")
         .controller("Suggestions", Suggestions);
 
@@ -121,6 +123,7 @@ function sgWaitCursor() {
 (function () {
     "use strict";
 
+    dataService.$inject = ["$http"];
   angular.module('app')
         .factory('dataService', dataService);
 

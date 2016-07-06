@@ -21,6 +21,8 @@ paths.concatJsDest = paths.webroot + "app/app.min.js";
 paths.concatJs = paths.webroot + "app/app.dev.js";
 paths.concatCssDest = paths.webroot + "css/site.min.css";
 
+paths.appJs = [paths.js, "!" + paths.minJs, "!" +  paths.concatJs];
+
 gulp.task("clean:js", function (cb) {
     rimraf([paths.concatJsDest, paths.concatJs], cb);
 });
@@ -32,7 +34,7 @@ gulp.task("clean:css", function (cb) {
 gulp.task("clean", ["clean:js", "clean:css"]);
 
 gulp.task("min:js", function () {
-    return gulp.src([paths.js, "!" + paths.minJs, "!" +  paths.concatJs], { base: "." })
+    return gulp.src(paths.appJs, { base: "." })
         .pipe(concat(paths.concatJsDest))
         .pipe(ngAnnotate())
         .pipe(uglify())
@@ -40,8 +42,9 @@ gulp.task("min:js", function () {
 });
 
 gulp.task("dev:js" , function() {
-    return gulp.src([paths.js, "!" + paths.minJs, "!" +  paths.concatJs], { base: "." })
+    return gulp.src(paths.appJs, { base: "." })
         .pipe(concat(paths.concatJs))
+        .pipe(ngAnnotate())
         .pipe(gulp.dest("."));
 });
 
@@ -67,3 +70,11 @@ gulp.task("publish:angular", function() {
 });
 
 gulp.task("publish", ["dev:js", "min:js", "min:css", "bootswatch:css", "publish:angular"]);
+
+gulp.task("watch", function() {
+    return gulp
+        .watch(paths.appJs, ['dev:js'])
+        .on('change', function (event) {
+            console.log('File: ' + event.path + ' was ' + event.type);
+        })
+});
