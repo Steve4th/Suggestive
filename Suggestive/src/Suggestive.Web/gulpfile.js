@@ -7,6 +7,7 @@ var gulp = require("gulp"),
     cssmin = require("gulp-cssmin"),
     less = require("gulp-less"),
     uglify = require("gulp-uglify"),
+    jshint = require('gulp-jshint'),
     ngAnnotate = require("gulp-ng-annotate");
 
 var paths = {
@@ -48,6 +49,13 @@ gulp.task("dev:js" , function() {
         .pipe(gulp.dest("."));
 });
 
+gulp.task('hint:js', function() {
+    return gulp
+        .src(paths.appJs)
+        .pipe(jshint('./.jshintrc'))
+        .pipe(jshint.reporter('jshint-stylish'));
+});
+
 gulp.task("min:css", function () {
     return gulp.src('./Styles/*.less')
         .pipe(less())
@@ -69,11 +77,11 @@ gulp.task("publish:angular", function() {
         .pipe(gulp.dest(paths.webroot + "lib/"));
 });
 
-gulp.task("publish", ["dev:js", "min:js", "min:css", "bootswatch:css", "publish:angular"]);
+gulp.task("publish", ["hint:js", "dev:js", "min:js", "min:css", "bootswatch:css", "publish:angular"]);
 
 gulp.task("watch", function() {
     return gulp
-        .watch(paths.appJs, ['dev:js'])
+        .watch(paths.appJs, ["hint:js", "dev:js"])
         .on('change', function (event) {
             console.log('File: ' + event.path + ' was ' + event.type);
         })

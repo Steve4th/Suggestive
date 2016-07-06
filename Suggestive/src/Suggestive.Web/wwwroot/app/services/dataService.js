@@ -12,7 +12,7 @@
         return service;
 
         function getSuggestions() {
-            return $http.get("/api/suggestions");
+            return $http.get('/api/suggestions');
         }
 
         function addSuggestion(newSuggestion) {
