@@ -1,6 +1,5 @@
+'use strict';
 (function () {
-    "use strict";
-
   angular.module('app')
         .factory('dataService', dataService);
 
@@ -16,7 +15,7 @@
         }
 
         function addSuggestion(newSuggestion) {
-            return $http.post("/api/suggestions/", newSuggestion);
+            return $http.post('/api/suggestions/', newSuggestion);
         }
     }
 })();

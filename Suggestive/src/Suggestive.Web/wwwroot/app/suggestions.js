@@ -1,13 +1,13 @@
 (function() {
-    angular.module("app")
-        .controller("Suggestions", Suggestions);
+    angular.module('app')
+        .controller('Suggestions', Suggestions);
 
     function Suggestions($http, dataService) {
 
         var vm = this;
         vm.suggestions = [];
         vm.newSuggestion = {};
-        vm.errorMessage = "";
+        vm.errorMessage = '';
         vm.isBusy = true;
         vm.saveSuggestion = saveSuggestion;
         vm.addSuggestion = addSuggestion; 
@@ -26,13 +26,13 @@
                     vm.suggestions = response.data || [];
                 }, 
                 function (error) {
-                    vm.errorMessage = "Problem getting suggestions: " + error.status + " - " + error.statusText;
+                    vm.errorMessage = 'Problem getting suggestions: ' + error.status + ' - ' + error.statusText;
                 });
         }
 
         function addSuggestion() {
             vm.isBusy = true;
-            vm.errorMessage = "";
+            vm.errorMessage = '';
 
             vm.saveSuggestion();
 
@@ -45,7 +45,7 @@
                 .then(function (response) {
                     vm.suggestions.push(response.data);
                 }, function (error) {
-                    vm.errorMessage = "Failed to save suggestion: " + error.status + " - " + error.statusText;
+                    vm.errorMessage = 'Failed to save suggestion: ' + error.status + ' - ' + error.statusText;
                 });
         }
     }

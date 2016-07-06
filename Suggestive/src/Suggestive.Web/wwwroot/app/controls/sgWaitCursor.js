@@ -1,14 +1,14 @@
 (function() {
-    angular.module("controls", [])
-            .directive("sgWaitCursor", sgWaitCursor);
+    angular.module('controls', [])
+            .directive('sgWaitCursor', sgWaitCursor);
 
     function sgWaitCursor() {
         return {
             scope: {
-                show: "=displayWhen"
+                show: '=displayWhen'
             },
-            restrict: "E",
-            templateUrl: "/app/controls/sgWaitCursor.html"
+            restrict: 'E',
+            templateUrl: '/app/controls/sgWaitCursor.html'
         };
     }
 })();
