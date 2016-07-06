@@ -2,7 +2,7 @@
     angular.module('app')
         .controller('SuggestionEditor', SuggestionEditor);
 
-    function SuggestionEditor($routeParams, $http) {
+    function SuggestionEditor($routeParams, $http, dataService) {
         var vm = this;
 
         vm.errorMessage = '';
@@ -12,7 +12,7 @@
         vm.suggestion = {};
         
         vm.getSuggestion = function () {
-            $http.get('/api/suggestions/' + vm.suggestionId)
+            dataService.getSuggestion(vm.suggestionId)
                 .then(function(response) {
                     angular.copy(response.data, vm.suggestion);
                 }, 
@@ -27,7 +27,7 @@
         vm.getSuggestion();
 
         vm.updateSuggestion = function () {
-            $http.put('/api/suggestions/'  + vm.suggestionId, vm.suggestion)
+            dataService.updateSuggestion(vm.suggestion)
                 .then(function (response) {
                     vm.statusMessage = 'Suggestion updated successfully';
                 }, function (error) {

@@ -6,7 +6,9 @@
     function dataService($http) {
         var service = {
             getAllSuggestions: getSuggestions,
-            addSuggestion: addSuggestion
+            getSuggestion: getSuggestion,
+            addSuggestion: addSuggestion,
+            updateSuggestion: updateSuggestion
         };
         return service;
 
@@ -16,6 +18,14 @@
 
         function addSuggestion(newSuggestion) {
             return $http.post('/api/suggestions/', newSuggestion);
+        }
+
+        function getSuggestion(id) {
+            return $http.get('/api/suggestions/' + id);
+        }
+
+        function updateSuggestion(suggestion) {
+            return $http.put('/api/suggestions/'  + suggestion.id, suggestion);
         }
     }
 })();

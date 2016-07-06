@@ -18,11 +18,11 @@
         }]);
 })();
 (function() {
-    SuggestionEditor.$inject = ["$routeParams", "$http"];
+    SuggestionEditor.$inject = ["$routeParams", "$http", "dataService"];
     angular.module('app')
         .controller('SuggestionEditor', SuggestionEditor);
 
-    function SuggestionEditor($routeParams, $http) {
+    function SuggestionEditor($routeParams, $http, dataService) {
         var vm = this;
 
         vm.errorMessage = '';
@@ -32,7 +32,7 @@
         vm.suggestion = {};
         
         vm.getSuggestion = function () {
-            $http.get('/api/suggestions/' + vm.suggestionId)
+            dataService.getSuggestion(vm.suggestionId)
                 .then(function(response) {
                     angular.copy(response.data, vm.suggestion);
                 }, 
@@ -47,7 +47,7 @@
         vm.getSuggestion();
 
         vm.updateSuggestion = function () {
-            $http.put('/api/suggestions/'  + vm.suggestionId, vm.suggestion)
+            dataService.updateSuggestion(vm.suggestion)
                 .then(function (response) {
                     vm.statusMessage = 'Suggestion updated successfully';
                 }, function (error) {
@@ -133,7 +133,9 @@
     function dataService($http) {
         var service = {
             getAllSuggestions: getSuggestions,
-            addSuggestion: addSuggestion
+            getSuggestion: getSuggestion,
+            addSuggestion: addSuggestion,
+            updateSuggestion: updateSuggestion
         };
         return service;
 
@@ -143,6 +145,14 @@
 
         function addSuggestion(newSuggestion) {
             return $http.post('/api/suggestions/', newSuggestion);
+        }
+
+        function getSuggestion(id) {
+            return $http.get('/api/suggestions/' + id);
+        }
+
+        function updateSuggestion(suggestion) {
+            return $http.put('/api/suggestions/'  + suggestion.id, suggestion);
         }
     }
 })();
