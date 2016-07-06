@@ -47,7 +47,7 @@
         vm.getSuggestion();
 
         vm.updateSuggestion = function () {
-            dataService.updateSuggestion(vm.suggestion)
+            dataService.update(vm.suggestion)
                 .then(function (response) {
                     vm.statusMessage = 'Suggestion updated successfully';
                 }, function (error) {
@@ -100,7 +100,7 @@
         }
 
         function saveSuggestion() {
-            dataService.addSuggestion(vm.newSuggestion)
+            dataService.add(vm.newSuggestion)
                 .then(function (response) {
                     vm.suggestions.push(response.data);
                 }, function (error) {
@@ -134,8 +134,8 @@
         var service = {
             getAllSuggestions: getSuggestions,
             getSuggestion: getSuggestion,
-            addSuggestion: addSuggestion,
-            updateSuggestion: updateSuggestion
+            add: addSuggestion,
+            update: updateSuggestion
         };
         return service;
 

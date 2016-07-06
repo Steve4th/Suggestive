@@ -27,7 +27,7 @@
         vm.getSuggestion();
 
         vm.updateSuggestion = function () {
-            dataService.updateSuggestion(vm.suggestion)
+            dataService.update(vm.suggestion)
                 .then(function (response) {
                     vm.statusMessage = 'Suggestion updated successfully';
                 }, function (error) {

@@ -41,7 +41,7 @@
         }
 
         function saveSuggestion() {
-            dataService.addSuggestion(vm.newSuggestion)
+            dataService.add(vm.newSuggestion)
                 .then(function (response) {
                     vm.suggestions.push(response.data);
                 }, function (error) {

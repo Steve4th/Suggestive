@@ -7,8 +7,8 @@
         var service = {
             getAllSuggestions: getSuggestions,
             getSuggestion: getSuggestion,
-            addSuggestion: addSuggestion,
-            updateSuggestion: updateSuggestion
+            add: addSuggestion,
+            update: updateSuggestion
         };
         return service;
 
