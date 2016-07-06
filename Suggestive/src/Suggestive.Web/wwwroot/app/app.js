@@ -1,7 +1,5 @@
-﻿(function () {
-    "use strict";
-
-//App startup/bootstraoping
+﻿"use strict";
+(function () {
     angular.module("app", ["controls", "ngRoute"])
         .config(function ($routeProvider) {
             $routeProvider.when("/", {
